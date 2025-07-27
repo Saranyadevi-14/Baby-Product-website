@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index page</title>
+   <link rel="stylesheet" href="Css/style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url('Images/rainbow.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.5; /* soft look */
+  z-index: -1; /* places rainbow behind content */
+  pointer-events: none;
+}
+
+  </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Images/baby.logo.webp" alt="EarthBubs"> 
+        <span>EarthBubs</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"></a>Home</li>
+                <li><a href="#" id="productBtn">Products</a></li>
+                <div class="dropdown-content" id="productMenu">
+                <a href="pampers.html">Pampers</a>
+                <a href="boys.html">Boy's Fashions</a>
+                <a href="girls.html">Girl's Fashions</a>
+                <a href="soap.html">Soap</a>
+                <a href="stroller.html">Stroller</a>
+                <a href="bottle.html">Bottle</a>
+                </div>
+                 <li><a href="offers.html">Offers</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+       <div class="search-bar">
+            <label>Search... &#128269;</label>
+        </div>
+          <div class="icons">
+            <a href="add.html" class="round-icon">🛍️</a>
+             <a href="#" class="round-icon">&#128100</a>
+      </div>
+    </header>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Gentle Care for Growing Joy</h1>
+            <p>Premium baby care products crafted with love,purity,and the softest materials - because your baby deserves the best.</p>
+        </div>
+        <div class="hero-image">
+            <img src="Images/Baby-img.png" alt="Sleeping Baby">
+        </div>
+    </section>
+
+     <div class="carousel-nav-container" id="carouselNav">
+  <button onclick="prevFile()">&#8249;</button>
+  <div class="nav-divider"></div>
+  <button onclick="nextFile()">&#8250;</button>
+</div>
+
+    
+    <section class="featured-categories">
+        <h1>Featured Categories</h1>
+        <p>Everything Your Baby Needs<div class="icons">
+ 
+    <div class="category-list">
+        <div class="category">
+            <a href="pampers.html">
+             <img src="Images/pampers.png" alt="Diapers & Pampers"></a>
+            <h3 class="category-title">Diapers & Pampers</h3>
+        </div>
+        <div class="category">
+            <a href="girls.html">
+            <img src="Images/dress.png" alt="Baby Dress"></a>
+            <h3 class="category-title">Baby Dress</h3>
+        </div>
+        <div class="category">
+            <a href="soap.html">
+            <img src="Images/soap.png" alt="Baby Soap"></a>
+            <h3 class="category-title">Baby Soap</h3>
+        </div>
+        <div class="category">
+            <a href="stroller.html">
+            <img src="Images/stroller.png" alt="Baby Stroller & Prams"></a>
+            <h3 class="category-title">Baby Stroller & Prams</h3>
+        </div>
+    </div>
+    </section>
+
+    <section class="parents-trust">
+        <h1> Why Parents Trust Us</h1>
+        <p>Designed with Love.Backed by Science.</p>
+        <div class="card-container">
+        <div class="card">
+                <img src="Images/img1.png" alt="Dermatologist Approved">
+                <div class="card-content">
+                    <h2>Dermatologist Approved</h2>
+                    <p>Every product is tested and safe for even the most sensitive baby skin.</p>
+                </div>
+                </div>
+                <div class="card">
+                    
+                    <img src="Images/img2.png" alt="Natural & Non-Toxic Ingredients">
+                    <div class="card-content">
+                        <h2>Natural & Non-Toxic Ingredients</h2>
+                        <p>We use only gentle,plant based formulas free from harsh chemicals.</p>
+                    </div>
+                </div>
+               <div class="card">
+                    
+                    <img src="Images/img3.png" alt="Loved by Thousands of Parents">
+                    <div class="card-content">
+                        <h2>Loved by Thousands of Parents </h2>
+                        <p>Real reviews,real results trusted by families across the country. </p>
+                    </div>
+                </div>    
+                 <div class="card">
+                    
+                    <img src="Images/img4.png" alt="Eco-Friendly Promise">
+                    <div class="card-content">
+                        <h2>Eco-Friendly Promise</h2>
+                        <p>From biodegradable packaging to cruelty-free manufacturing,we care for the planet as much as your baby.  </p>
+                    </div>
+                </div>  
+                 <div class="card">
+                    
+                    <img src="Images/img5.png" alt="Fast & Reliable Shipping">
+                    <div class="card-content">
+                        <h2>Fast & Reliable Shipping</h2>
+                        <p>We deliver your baby's essentials swiftly and safely because every moment counts.</p>
+                    </div>
+                </div>
+    </section>
+
+    <section class="best-sellers">
+        <h1> Best Sellers</h1>
+        <p>Our Most Loved Products</p>
+          
+        <div class="product-container">
+        <div class="product-card">
+  <span class="new-tag">NEW</span>
+  <div class="product-img">
+    <a href="girls.html"><img src="Images/wipes.png" alt="wipes"></a>
+  </div>
+
+  <!-- Curved Header -->
+  <div class="curve-header"></div>
+
+  <!-- Buy Button (moved outside curve-header) -->
+  <button class="buy-btn">Buy</button>
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <h2>Wipes</h2>
+    <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+      <p><del> MRP ₹1444.00 </del> <span><h3> Price ₹1299.00</h3></span></p>
+    
+  </div>
+  </div>
+     
+     <div class="product-card">
+  <span class="new-tag">NEW</span>
+  <div class="product-img">
+    <a href="girls.html"><img src="Images/miel.png" alt="Mama Miel Baby "></a>
+  </div>
+
+  <!-- Curved Header -->
+  <div class="curve-header"></div>
+
+  <!-- Buy Button (moved outside curve-header) -->
+  <button class="buy-btn">Buy</button>
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <h2>Mama Miel Baby</h2>
+    <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9734;</div>
+     <p><del> MRP ₹1444.00 </del> <span><h3> Price ₹1299.00</h3></span></p>
+    
+  </div>
+</div>
+
+  <div class="product-card">
+  <span class="new-tag">NEW</span>
+  <div class="product-img">
+    <a href="girls.html"><img src="Images/zibuyu.png" alt="zibuyu"></a>
+  </div>
+
+  <!-- Curved Header -->
+  <div class="curve-header"></div>
+
+  <!-- Buy Button (moved outside curve-header) -->
+  <button class="buy-btn">Buy</button>
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <h2>Super Cute's</h2>
+    <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9734;</div>
+     <p><del> MRP ₹1444.00 </del> <span><h3> Price ₹1299.00</h3></span></p>
+    
+  </div>
+</div>
+</div>
+    
+  <div class="dot-container">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+        </section>
+
+ <section class="trending-products">
+
+        <h1> Trending Products</h1>
+        <p>Parent Favorites, Baby Approved</p>
+
+         <!-- Baby Stroller -->
+  <section class="product-section">
+    <div class="trending-container">
+      <div class="trending-img">
+        <img src="Images/stroller (2).png" alt="Baby Stroller">
+      </div>
+      <div class="trending-text">
+        <h1>Baby Stroller</h1>
+        <p>
+          Explore the world in comfort with our smooth and stylish baby stroller.
+          Designed for safety, ease, and flexibility perfect for every little adventure.
+          Lightweight, foldable, and parent-friendly for life on the go.
+        </p>
+        <button class="buy">Buy Now ↗</button>
+      </div>
+    </div>
+  </section>
+
+   <section class="trending">
+    <div class="trending-content">
+      <h2>Feeding Bottle</h2>
+      <p>
+        The baby feeding bottle is made from 100% BPA-free, safe materials. 
+        Its soft silicone nipple feels natural and gentle on the baby's mouth. 
+        The anti-colic design helps reduce gas and fussiness during feeding. 
+        It’s lightweight, easy to hold, and perfect for everyday use.
+      </p>
+      <a href="#" class="btn">Buy Now</a>
+    </div>
+    <div class="trending-img">
+      <img src="Images/bottle.png" alt="Feeding Bottle">
+    </div>
+  </section>
+
+  <!-- Pampers -->
+  <section class="product-section">
+    <div class="trending-container">
+      <div class="trending-img">
+      <a href="pampers.html" ><img src="Images/pampers.png" alt="Pampers"></a>
+      </div>
+      <div class="trending-text">
+        <h1>Pampers</h1>
+        <p>
+          Keep your baby dry, comfy, and smiling all day with our ultra-soft diapers.
+          Designed with leak-lock technology and breathable layers for extra protection.
+          Gentle on delicate skin, perfect for day and night comfort.
+        </p>
+        <a href="pampers.html"><button class="buy">Buy Now ↗</button></a>
+      </div>
+    </div>
+  </section>
+
+            <h1>Customer Testimonials</h1>
+  <h3>Parent Favorites, Baby Approved</h3>
+    <div class="testimonial-container">
+
+  <!-- Testimonial 1 -->
+  <div class="testimonial-card">
+    <div class="profile-wrapper">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" class="profile-pic" alt="Rahul S.">
+      <span class="star-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="star">
+      </span>
+    </div>
+    <div class="testimonial-name">Rahul S. – Bangalore, India</div>
+    <p class="testimonial-text">
+      "We love the stroller – lightweight, easy to fold, and super smooth on roads. Perfect for city walks. The quality feels premium, and my daughter is always comfy in it."
+    </p>
+  </div>
+
+  <!-- Testimonial 2 (center) -->
+  <div class="testimonial-card center-card">
+    <div class="profile-wrapper">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg" class="profile-pic" alt="Priya M.">
+      <span class="star-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="star">
+      </span>
+    </div>
+    <div class="testimonial-name">Priya M. – Chennai, India</div>
+    <p class="testimonial-text">
+      "The EarthBubs diapers are amazing! My baby sleeps through the night without any leaks or rashes. I’ve tried many brands, but this one is truly gentle and reliable."
+    </p>
+  </div>
+
+  <!-- Testimonial 3 -->
+  <div class="testimonial-card">
+    <div class="profile-wrapper">
+      <img src="https://randomuser.me/api/portraits/women/15.jpg" class="profile-pic" alt="Anika R.">
+      <span class="star-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="star">
+      </span>
+    </div>
+    <div class="testimonial-name">Anika R. – Mumbai, India</div>
+    <p class="testimonial-text">
+      "I ordered the baby Soap kit and I’m blown away. The lotion and wash are so gentle, and the natural fragrance is lovely. No irritation at all – just soft, healthy skin."
+    </p>
+  </div>
+
+</div>
+     <div class="dot-container">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+        <h1>Frequently Asked Questions</h1>
+        <p class="one">We're Here to Help -Every Step of the Way </p>
+         <div class="faq-container">
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <p>Are your products safe for newborns?</p>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <p class="faq-answer">
+        Yes, all our products are dermatological tested and made with gentle, non-toxic ingredients that are safe for newborns and sensitive skin.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <p>How long does delivery take?</p>
+        <span class="arrow">&#9650;</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <p>Can I return or exchange a product?</p>
+        <span class="arrow">&#9650;</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <p>What payment methods do you accept?</p>
+        <span class="arrow">&#9650;</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <p>Are your skincare products organic or natural?</p>
+        <span class="arrow">&#9650;</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <p>How can I contact customer support?</p>
+        <span class="arrow">&#9650;</span>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>KNOW</h4>
+      <p>About Us</p>
+      <p>About Earthbubs Store</p>
+      <p>Bulk Purchase & Corporate Gifts</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>TERMS & CONDITIONS</h4>
+      <p>Shipping & Return Policies</p>
+      <p>Privacy Policy</p>
+      <p>FAQ’s</p>
+    </div>
+
+    <a href="contacts.html">
+    <div class="footer-section">
+      <h4>CONTACT US</h4>
+      <p>For Sale: Earthbubs@co.in</p>
+      <p>Call: +91 1234567890</p>
+      <p>For Complaints: 1800 202 2222</p>
+      <p>Chat Time: Our Team is Available From Monday to Saturday from 9.00AM to 8.00PM</p>
+      <p>For Complaints: Ebstcustomercare.com</p></a>
+    </div>
+
+    <div class="footer-section follow">
+      <h4>FOLLOW US</h4>
+      <p>
+        <i class="fab fa-instagram"></i> &nbsp;
+        <i class="fab fa-facebook"></i> &nbsp;
+        <i class="fab fa-twitter"></i>
+      </p>
+    </div>
+  </div>
+
+  <p class="copyright">Copyright © 2025 All Rights Reserved.</p>
+</footer>
+    <script src="JS/script.js"> by7</script>
+
+</body>
+        </html>
+         
+        

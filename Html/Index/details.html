@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  line-height: 1.5;
+}
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20px 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #2b2b2b;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+}
+
+/* ===== NAVIGATION ===== */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li {
+  font-size: 16px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding-bottom: 5px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+  border-bottom: 3px solid #7ed6df;
+  background-color: #dff6ff;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 90px;
+  backdrop-filter: blur(4px);
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: dropdownFade 0.18s ease-in-out;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1.2;
+  transition: background 0.25s;
+}
+
+.dropdown-content a:hover {
+  background-color: #e3f2fd;
+  color: blue;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-5px) scaleY(0.98);}
+  to { opacity: 1; transform: translateY(0) scaleY(1);}
+}
+
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.search-bar label {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 5px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.search-bar label:hover {
+  border-bottom: 2px solid #7ed6df;
+}
+.header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        }
+
+
+    .filter-btn {
+      background-color: #fff;
+      border: 2px solid #333;
+      padding: 10px 20px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    .filter-btn:hover {
+      transition: 0.3s ease-in-out;
+      color: lightslategray;
+    }
+
+
+/* ===== ROUND ICONS ===== */
+.round-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: #333;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-left: 10px;
+}
+
+.round-icon:hover {
+  background-color: #7ed6df;
+  border-bottom: 3px solid #00aaff;
+}
+
+/* ===== MAIN ===== */
+main {
+  padding: 40px 20px;
+}
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .form-box, .cart-box {
+      border: 1px solid #cce7f2;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fdfdfd;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      flex: 1;
+      max-width: 450px;
+      min-width: 320px;
+    }
+    .form-box .field {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #e6f3f7;
+      height: 20px;
+    }
+    .form-box label {
+      font-weight: bold;
+      display: block;
+    }
+    .form-box .checkbox {
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+    .checkbox-icon {
+      width: 16px;
+      height: 16px;
+      background: #00b7e6;
+      border-radius: 3px;
+      margin-right: 8px;
+      display: inline-block;
+    }
+    .cart-box h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    .cart-box .line {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .payment-options {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+    .payment-options img {
+      width: 50px;
+      height: 30px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 5px;
+      cursor: default;
+    }
+    .place-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #00b7e6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: not-allowed;
+    }
+    .radio-box {
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    .radio-icon {
+      width: 14px;
+      height: 14px;
+      border: 2px solid #000;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 5px;
+      position: relative;
+    }
+    .radio-icon::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: #000;
+      border-radius: 50%;
+      position: absolute;
+      top: 1px;
+      left: 1px;
+    }
+
+    .carousel-nav-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2c2c2c;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.carousel-nav-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-nav-container button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background-color: #777;
+  margin: 0 10px;
+}
+
+/* 🔸 Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .carousel-nav-container {
+    bottom: 20px;
+    padding: 8px 16px;
+  }
+  .carousel-nav-container button {
+    font-size: 18px;
+    padding: 4px 8px;
+  }
+}
+
+/* 🔸 Tablet (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .carousel-nav-container {
+    bottom: 30px;
+    padding: 9px 18px;
+  }
+  .carousel-nav-container button {
+    font-size: 20px;
+  }
+}
+
+/* 🔸 Desktop (769px+) */
+@media (min-width: 769px) {
+  .carousel-nav-container {
+    bottom: 40px;
+    padding: 10px 20px;
+  }
+  .carousel-nav-container button {
+    font-size: 22px;
+  }
+}
+
+ footer {
+  background: lightblue;
+  padding: 30px 40px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-container h4 {
+  margin-bottom: 10px;
+  color: #111;
+  font-size: 16px;
+  position: relative;
+}
+
+.footer-section h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 200px;
+  height: 2px;
+  background-color: brown;
+}
+
+.footer-section.follow h4::after {
+  width: 80px; /* Shorter underline only for FOLLOW US */
+}
+
+.footer-section p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.footer-section.follow p {
+  font-size: 20px;
+  margin-top: 12px;
+}
+
+footer .copyright {
+  text-align: center;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 2px solid brown;
+  margin-top: 20px;
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="Images/baby.logo.webp" alt="EarthBubs"> 
+            <span>EarthBubs</span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" id="productBtn">Products</a></li>
+                <div class="dropdown-content" id="productMenu">
+                    <a href="pampers.html">Pampers</a>
+                    <a href="boys.html">Boy's Fashions</a>
+                    <a href="girls.html">Girl's Fashions</a>
+                    <a href="soap.html">Soap</a>
+                    <a href="stroller.html">Stroller</a>
+                    <a href="bottle.html">Bottle</a>
+                </div>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+
+        <div class="search-bar">
+            <label>Search... &#128269;</label>
+        </div>
+
+        <div class="icons">
+            <a href="add.html" class="round-icon">🛍️</a>
+            <a href="#" class="round-icon">&#128100;</a>
+        </div>
+    </header>
+
+        <div class="page-header">
+        <h1>Home > Add to cart > Payments </h1>
+          </div>
+
+  <div class="container">
+    <!-- Left Form -->
+    <div class="form-box">
+      <label>First Name*</label>
+      <div class="field"></div>
+
+      <label>Company Name</label>
+      <div class="field"></div>
+
+      <label>Street Address</label>
+      <div class="field"></div>
+
+      <label>Apartment, Floor, etc (Optional)</label>
+      <div class="field"></div>
+
+      <label>Tower/City*</label>
+      <div class="field"></div>
+
+      <label>Phone Number*</label>
+      <div class="field"></div>
+
+      <label>Email Address*</label>
+      <div class="field"></div>
+
+      <div class="checkbox">
+        <span class="checkbox-icon"></span>
+        Save this information for faster check-out next time
+      </div>
+    </div>
+
+    
+         <div class="carousel-nav-container" id="carouselNav">
+  <button onclick="prevFile()">&#8249;</button>
+  <div class="nav-divider"></div>
+  <button onclick="nextFile()">&#8250;</button>
+</div>
+
+    <!-- Right Cart -->
+    <div class="cart-box">
+      <h3>Cart Total</h3>
+      <div class="line"><span>Subtotal:</span><span>₹2200</span></div>
+      <div class="line"><span>Discount:</span><span>₹250</span></div>
+      <div class="line"><span>Shipping:</span><span>Free</span></div>
+      <div class="line"><strong>Total:</strong><strong>₹1,950</strong></div>
+
+      <div class="payment-options">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Google_Pay_Logo.svg" alt="GPay">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Pay">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/PayPal_logo.svg" alt="Paypal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828926.png" alt="+ADD">
+      </div>
+
+      <div class="radio-box">
+        <span class="radio-icon"></span> Cash on delivery
+      </div>
+
+      <button class="place-btn" disabled>Place Order</button>
+    </div>
+  </div>
+  <footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>KNOW</h4>
+      <p>About Us</p>
+      <p>About Earthbubs Store</p>
+      <p>Bulk Purchase & Corporate Gifts</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>TERMS & CONDITIONS</h4>
+      <p>Shipping & Return Policies</p>
+      <p>Privacy Policy</p>
+      <p>FAQ’s</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>CONTACT US</h4>
+      <p>For Sale: Earthbubs@co.in</p>
+      <p>Call: +91 1234567890</p>
+      <p>For Complaints: 1800 202 2222</p>
+      <p>Chat Time: Our Team is Available From Monday to Saturday from 9.00AM to 8.00PM</p>
+      <p>For Complaints: Ebstcustomercare.com</p>
+    </div>
+
+    <div class="footer-section follow">
+      <h4>FOLLOW US</h4>
+      <p>
+        <i class="fab fa-instagram"></i> &nbsp;
+        <i class="fab fa-facebook"></i> &nbsp;
+        <i class="fab fa-twitter"></i>
+      </p>
+    </div>
+  </div>
+
+  <p class="copyright">Copyright © 2025 All Rights Reserved.</p>
+</footer>
+   <script src="JS/script.js"> by7</script>
+</body>
+</html>

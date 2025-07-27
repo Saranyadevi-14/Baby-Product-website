@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-style: Poppins;
+        }
+        body {
+            font-family: Poppins;
+            background: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            
+        }
+          header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 20px 50px;
+            box-shadow: 0 24px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #2b2b2b;
+        }
+        .logo img {
+            width: 100px;
+            height: 100px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding-bottom: 5px;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+        nav ul li a:hover {
+            border-bottom: 3px solid #7ed6df;
+            box-shadow: 15px;
+            background-color: #dff6ff;
+    
+        }
+
+            .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 90px;
+            backdrop-filter: blur(4px);
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: dropdownFade 0.18s ease-in-out;
+            z-index: 1000;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 1.2;
+            transition: background 0.25s;
+            position: sticky;
+        }
+        .dropdown-content a:hover {
+            background-color: #e3f2fd;
+            color: blue;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @keyframes dropdownFade {
+            from { opacity: 0; transform: translateY(-5px) scaleY(0.98);}
+            to { opacity: 1; transform: translateY(0) scaleY(1);}
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 3px solid #ccc;
+            padding: 5px 10px;
+            border: 25px lightblue;
+        }
+        .search-bar input {
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 5px;
+        }
+        .search-bar input:hover {
+            border-bottom: 3px solid skyblue;
+        }
+       .round-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: #333;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-left: 10px;
+}
+
+.round-icon:hover {
+  background-color: #7ed6df;
+  border-bottom: 3px solid #00aaff;
+}
+        /* About Section */
+        .about-section {
+        padding: 40px;
+        background: white;
+        }
+
+        .about-container {
+        max-width: 1000px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        color: #111;
+        }
+
+        .about-logo {
+        flex: 1;
+            text-align: center;
+        }
+
+        .about-logo img {
+        width: 200px;
+        margin-bottom: 10px;
+        }
+
+        .about-content {
+        flex: 2;
+        color: #111;
+        font-size: 20px;
+        }
+
+        .about-content h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #111;
+        }
+
+        .about-content p {
+        margin-bottom: 15px;
+        color: #111;
+        }
+
+        .about-content ul {
+        margin-top: 10px;
+        padding-left: 20px;
+        
+        }
+
+        .about-content ul li {
+        margin-bottom: 8px;
+        text-decoration: none;
+        list-style: none;
+        }
+
+         footer {
+  background: lightblue;
+  padding: 30px 40px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-container h4 {
+  margin-bottom: 10px;
+  color: #111;
+  font-size: 16px;
+  position: relative;
+}
+
+.footer-section h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 200px;
+  height: 2px;
+  background-color: brown;
+}
+
+.footer-section.follow h4::after {
+  width: 80px; /* Shorter underline only for FOLLOW US */
+}
+
+.footer-section p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.footer-section.follow p {
+  font-size: 20px;
+  margin-top: 12px;
+}
+
+footer .copyright {
+  text-align: center;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 2px solid brown;
+  margin-top: 20px;
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.carousel-nav-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2c2c2c;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.carousel-nav-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-nav-container button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background-color: #777;
+  margin: 0 10px;
+}
+
+/* 🔸 Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .carousel-nav-container {
+    bottom: 20px;
+    padding: 8px 16px;
+  }
+  .carousel-nav-container button {
+    font-size: 18px;
+    padding: 4px 8px;
+  }
+}
+
+/* 🔸 Tablet (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .carousel-nav-container {
+    bottom: 30px;
+    padding: 9px 18px;
+  }
+  .carousel-nav-container button {
+    font-size: 20px;
+  }
+}
+
+/* 🔸 Desktop (769px+) */
+@media (min-width: 769px) {
+  .carousel-nav-container {
+    bottom: 40px;
+    padding: 10px 20px;
+  }
+  .carousel-nav-container button {
+    font-size: 22px;
+  }
+}
+      
+    </style>
+</head>
+<body>
+     <header>
+        <div class="logo">
+            <img src="Images/baby.logo.webp" alt="EarthBubs"> 
+        <span>EarthBubs</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                 <li><a href="#" id="productBtn">Products</a></li>
+                <div class="dropdown-content" id="productMenu">
+                <a href="pampers.html">Pampers</a>
+                <a href="boys.html">Boy's Fashions</a>
+                <a href="girls.html">Girl's Fashions</a>
+                <a href="soap.html">Soap</a>
+                <a href="stroller.html">Stroller</a>
+                <a href="bottle.html">Bottle</a>
+                </div>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a class="active" href="about.html">About</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...  🔍">
+        </div>
+        <div class="icons">
+            <a href="#" class="round-icon">🛍️</a>
+  <a href="#" class="round-icon">&#128100</a>
+</div>
+    </header>
+    
+
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-logo">
+                <img src="Images/baby.logo.webp" alt="EarthBubs Logo">
+                <h1>EarthBubs</h1>
+            </div>
+             
+
+            <div class="about-content">
+                <h2>About Us</h2>
+                 <p>
+          At EarthBubs, we believe that every baby deserves the safest, softest start in life.
+          That’s why we’re dedicated to offering high quality, trusted baby products that combine comfort,
+          care, and innovation all wrapped in love. Born from a parent’s desire for gentle, safe, and natural
+          baby essentials, our journey began with one goal: to make parenting a little easier, and a lot more joyful.
+        
+          From soft diapers and skin-loving care to smart strollers and feeding must haves,
+          every product we offer is thoughtfully chosen and thoroughly tested for your baby’s well being.
+          We’re more than just a store we’re part of your parenting journey.
+        </p>
+
+        <h4>What Makes Us Different:</h4>
+        <ul>
+          <li>🌿 Natural, safe, and toxin-free ingredients</li>
+          <li>👩‍⚕️ Pediatrician & dermatologist approved</li>
+          <li>👶 Designed with real parents in mind</li>
+          <li>🌍 Eco-conscious and cruelty-free practices</li>
+          <li>❤️ 10,000+ happy families and growing!</li>
+        </ul>
+        
+            </div>
+        </div>
+    </section>
+     <div class="carousel-nav-container" id="carouselNav">
+  <button onclick="prevFile()">&#8249;</button>
+  <div class="nav-divider"></div>
+  <button onclick="nextFile()">&#8250;</button>
+</div>
+
+    <footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>KNOW</h4>
+      <p>About Us</p>
+      <p>About Earthbubs Store</p>
+      <p>Bulk Purchase & Corporate Gifts</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>TERMS & CONDITIONS</h4>
+      <p>Shipping & Return Policies</p>
+      <p>Privacy Policy</p>
+      <p>FAQ’s</p>
+    </div>
+<a href="contacts.html">
+    <div class="footer-section">
+      <h4>CONTACT US</h4>
+      <p>For Sale: Earthbubs@co.in</p>
+      <p>Call: +91 1234567890</p>
+      <p>For Complaints: 1800 202 2222</p>
+      <p>Chat Time: Our Team is Available From Monday to Saturday from 9.00AM to 8.00PM</p>
+      <p>For Complaints: Ebstcustomercare.com</p></a>
+    </div>
+
+    <div class="footer-section follow">
+      <h4>FOLLOW US</h4>
+      <p>
+        <i class="fab fa-instagram"></i> &nbsp;
+        <i class="fab fa-facebook"></i> &nbsp;
+        <i class="fab fa-twitter"></i>
+      </p>
+    </div>
+  </div>
+
+  <p class="copyright">Copyright © 2025 All Rights Reserved.</p>
+</footer>
+
+   
+      <script src="JS/script.js"> by7</script>
+
+</body>
+</html>

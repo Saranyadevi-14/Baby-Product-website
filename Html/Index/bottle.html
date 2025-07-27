@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>bottle</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Poppins, sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: white;
+      padding: 20px 50px;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #2b2b2b;
+    }
+
+    .logo img {
+      width: 80px;
+      height: 80px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      position: relative;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 5px 10px;
+      transition: background 0.3s ease;
+      display: inline-block;
+    }
+
+    nav ul li a:hover {
+      background-color: #dff6ff;
+      border-radius: 6px;
+      border-bottom: 3px solid #7ed6df;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background: #fff;
+      min-width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      animation: dropdownFade 0.2s ease-in-out;
+      z-index: 999;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-size: 15px;
+      transition: background 0.25s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #e3f2fd;
+      color: #0077cc;
+    }
+
+    @keyframes dropdownFade {
+      from {
+        opacity: 0;
+        transform: translateY(-5px) scaleY(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+      }
+    }
+
+    .search-bar {
+      border: 2px solid #ccc;
+      padding: 5px 10px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 5px;
+    }
+
+    .search-bar input:hover {
+      border-bottom: 2px solid skyblue;
+    }
+    /* ===== ROUND ICONS ===== */
+.round-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: #333;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-left: 10px;
+}
+
+.round-icon:hover {
+  background-color: #7ed6df;
+  border-bottom: 3px solid #00aaff;
+}
+
+     .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        }
+
+        .filter-container {
+  position: relative;
+  display: inline-block;
+  right: 60px;
+}
+
+.filter-btn {
+  background-color: #fff;
+  border: 2px solid #333;
+  padding: 10px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.filter-btn:hover {
+  transition: 0.3s ease-in-out;
+  color: lightslategray;
+}
+
+/* Dropdown Styling */
+.dropdown-para {
+  position: absolute;
+  top: 110%;
+  left: 0; /* Keep it aligned to the button's left */
+  z-index: 100;
+  background-color: #fff;
+  border: 1px solid lightblue;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+  min-width: 180px;
+  right: 70px;
+}
+
+.dropdown-para li {
+  padding: 12px 18px;
+  border-bottom: 1px solid #e0e0e0;
+  list-style: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dropdown-para li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-para li:hover {
+  background-color: #f0f8ff;
+}
+
+/* Responsive Fix */
+@media (max-width: 400px) {
+  .dropdown-para {
+    right: 0;
+    left: 0; /* If screen is too small, align to the right instead */
+    min-width: 160px;
+  }
+}
+    
+     .product-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  justify-items: center;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  position: relative;
+  gap: 30px;
+  
+}
+.new-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #00c2ff;
+  padding: 5px 15px;
+  border-bottom-right-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+/* Curved Header */
+.curve-header {
+  position: relative;
+  height: 30px;
+  background: #bfe9ff;
+  clip-path: polygon(0 0, 65% 0, 75% 100%, 0 100%);
+  z-index: 1;
+}
+
+/* Buy Button placed over curve */
+.buy-btn {
+  position: absolute;
+  top: 230px; /* Adjust so it sits over the curve */
+  right: 27px;
+  background: #00c2ff;
+  border: none;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-top: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.buy-btn:hover {
+  transform: scale(1.05);
+}
+
+.product-info {
+  background: #bfe9ff;
+  padding: 10px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  text-align: left;
+}
+
+.rating {
+  font-size: 18px;
+  color: #ffcc00;
+  margin: 5px 0;
+}
+
+.mrp {
+  color: #888;
+  font-size: 14px;
+}
+@media (max-width: 768px) {
+  .product-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .buy-btn {
+    top: 360px;
+    right: 15px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .rating {
+    font-size: 16px;
+  }
+
+  .mrp {
+    font-size: 12px;
+  }
+}
+
+/* Large Desktop (Above 1200px) */
+@media (min-width: 1200px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+  .buy-btn {
+    top: 285px;
+    right: 35px;
+    padding: 5px 13px;
+    font-size: 15px;
+  }
+
+  .rating {
+    font-size: 16px;
+  }
+
+  .mrp {
+    font-size: 12px;
+  }
+
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid lightsteelblue;
+  height: 45px;
+  width: 250px;
+  margin: 20px auto; /* Always center horizontally */
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.pagination span {
+  margin: 0 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination span.active {
+  color: #00bcd4;
+  font-weight: bold;
+}
+
+/* ================= Responsive Design ================= */
+
+/* Tablet View (768px to 1024px) */
+@media (max-width: 1024px) {
+  .pagination {
+    width: 220px;
+    font-size: 16px;
+    height: 42px;
+  }
+
+  .pagination span {
+    margin: 0 5px;
+  }
+}
+
+/* Mobile View (Below 768px) */
+@media (max-width: 768px) {
+  .pagination {
+    width: 90%;         /* Take most of the screen width */
+    font-size: 15px;
+    height: auto;
+    padding: 8px;
+  }
+
+  .pagination span {
+    display: inline-block;
+    margin: 3px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    background-color: #f0f8ff; 
+  }
+
+  .pagination span.active {
+    background-color: #00bcd4;
+    color: #fff;
+  }
+}
+
+/* Large Desktop (Above 1200px) */
+@media (min-width: 1200px) {
+  .pagination {
+    width: 300px;
+    font-size: 18px;
+  }
+}
+.carousel-nav-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2c2c2c;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.carousel-nav-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-nav-container button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background-color: #777;
+  margin: 0 10px;
+}
+
+/* 🔸 Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .carousel-nav-container {
+    bottom: 20px;
+    padding: 8px 16px;
+  }
+  .carousel-nav-container button {
+    font-size: 18px;
+    padding: 4px 8px;
+  }
+}
+
+/* 🔸 Tablet (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .carousel-nav-container {
+    bottom: 30px;
+    padding: 9px 18px;
+  }
+  .carousel-nav-container button {
+    font-size: 20px;
+  }
+}
+
+/* 🔸 Desktop (769px+) */
+@media (min-width: 769px) {
+  .carousel-nav-container {
+    bottom: 40px;
+    padding: 10px 20px;
+  }
+  .carousel-nav-container button {
+    font-size: 22px;
+  }
+}
+
+ footer {
+  background: lightblue;
+  padding: 30px 40px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-container h4 {
+  margin-bottom: 10px;
+  color: #111;
+  font-size: 16px;
+  position: relative;
+}
+
+.footer-section h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 200px;
+  height: 2px;
+  background-color: brown;
+}
+
+.footer-section.follow h4::after {
+  width: 80px; /* Shorter underline only for FOLLOW US */
+}
+
+.footer-section p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.footer-section.follow p {
+  font-size: 20px;
+  margin-top: 12px;
+}
+
+footer .copyright {
+  text-align: center;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 2px solid brown;
+  margin-top: 20px;
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="Images/baby.logo.webp" alt="EarthBubs" />
+      <span>EarthBubs</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" id="productBtn">Products</a>
+          <div class="dropdown-content" id="productMenu">
+            <a href="pampers.html">Pampers</a>
+            <a href="boys.html">Boy's Fashion</a>
+            <a href="girls.html">Girl's Fashion</a>
+            <a href="soap.html">Soap</a>
+            <a href="stroller.html">Stroller</a>
+            <a href="bottle.html">Bottle</a>
+          </div>
+        </li>
+        <li><a href="offers.html">Offers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+      </ul>
+    </nav>
+    <div class="search-bar">
+      <input type="text" placeholder="Search... 🔍" />
+    </div>
+      <div class="icons">
+            <a href="add.html" class="round-icon">🛍️</a>
+            <a href="#" class="round-icon">&#128100;</a>
+        </div>
+    </header>
+  </header>
+            <div class="page-header">
+        <h1>Home > Products > Bottle</h1>
+        <div class="filter-container">
+  <button class="filter-btn" onclick="toggleDropdown()">Filter ⇅</button>
+  <ul class="dropdown-para" id="dropdown-para">
+      <a href="pampers.html"><li>Price (100–1000)</li></a>
+    <a href="girls.html"><li>Price (1000–1500)</li></a>
+    <a href="stroller.html"><li>Price (1500–2000)</li></a>
+    <a href="offers.html"><li>Free Shipping (6)</li></a>
+    <li>Discounts (6)</li>
+  </ul>
+</div>
+        </div>
+
+
+         <div class="carousel-nav-container" id="carouselNav">
+  <button onclick="prevFile()">&#8249;</button>
+  <div class="nav-divider"></div>
+  <button onclick="nextFile()">&#8250;</button>
+</div>
+
+
+        <div class="product-container">
+        <div class="product-card">
+  <span class="new-tag">NEW</span>
+  <div class="product-img">
+    <img src="Images/bottle1.png" alt="Mee Steele">
+  </div>
+
+  <!-- Curved Header -->
+  <div class="curve-header"></div>
+
+  <!-- Buy Button (moved outside curve-header) -->
+  <button class="buy-btn">Buy</button>
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <h2>Mee Steele</h2>
+    <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+      <p><del> MRP ₹466.00 </del> <span><h3> Price ₹399.00</h3></span></p>
+    
+  </div>
+  </div>
+     
+     <div class="product-card">
+  <span class="new-tag">NEW</span>
+  <div class="product-img">
+    <img src="Images/bottle2.png" alt="LuvLap">
+  </div>
+
+  <!-- Curved Header -->
+  <div class="curve-header"></div>
+
+  <!-- Buy Button (moved outside curve-header) -->
+  <button class="buy-btn">Buy</button>
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <h2>LuvLap</h2>
+    <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9734;</div>
+     <p><del> MRP ₹300.00 </del> <span><h3> Price ₹240.00</h3></span></p>
+    
+  </div>
+</div>
+
+<div class="product-card">
+  <span class="new-tag">NEW</span>
+  <div class="product-img">
+    <img src="Images/bottle3.png" alt="Philips">
+  </div>
+
+  <!-- Curved Header -->
+  <div class="curve-header"></div>
+
+  <!-- Buy Button (moved outside curve-header) -->
+  <button class="buy-btn">Buy</button>
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <h2>Philips</h2>
+    <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    <p><del> MRP ₹600.00 </del> <span><h3> Price ₹599.00</h3></span></p>
+  </div>
+  </div>
+     
+     <div class="product-card">
+  <span class="new-tag">NEW</span>
+  <div class="product-img">
+    <img src="Images/bottle4.jpg" alt="Aveta">
+  </div>
+
+  <!-- Curved Header -->
+  <div class="curve-header"></div>
+
+  <!-- Buy Button (moved outside curve-header) -->
+  <button class="buy-btn">Buy</button>
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <h2>Aveta</h2>
+    <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+      <p><del> MRP ₹300.00 </del> <span><h3> Price ₹250.00</h3></span></p> 
+  </div>
+</div>
+
+<div class="product-card">
+  <span class="new-tag">NEW</span>
+  <div class="product-img">
+    <img src="Images/bottle5.png" alt="chicco">
+  </div>
+
+  <!-- Curved Header -->
+  <div class="curve-header"></div>
+
+  <!-- Buy Button (moved outside curve-header) -->
+  <button class="buy-btn">Buy</button>
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <h2>Chicco</h2>
+    <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+   <p><del> MRP ₹499.00 </del> <span><h3> Price ₹400.00</h3></span></p>
+    </div>
+    </div>
+     
+     <div class="product-card">
+  <span class="new-tag">NEW</span>
+  <div class="product-img">
+    <img src="Images/bottle6.png" alt="Small Wonder">
+  </div>
+
+  <!-- Curved Header -->
+  <div class="curve-header"></div>
+
+  <!-- Buy Button (moved outside curve-header) -->
+  <button class="buy-btn">Buy</button>
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <h2>Small Wonder</h2>
+    <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    <p><del> MRP ₹480.00 </del> <span><h3> Price ₹399.00</h3></span></p>
+  </div>
+</div>
+</div>
+
+ <!-- Pagination -->
+    <div class="pagination">
+      <span class="active"> < </span>
+      <span class="active">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+      <span class="active">&gt;</span>
+    </div>
+
+    <footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>KNOW</h4>
+      <p>About Us</p>
+      <p>About Earthbubs Store</p>
+      <p>Bulk Purchase & Corporate Gifts</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>TERMS & CONDITIONS</h4>
+      <p>Shipping & Return Policies</p>
+      <p>Privacy Policy</p>
+      <p>FAQ’s</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>CONTACT US</h4>
+      <p>For Sale: Earthbubs@co.in</p>
+      <p>Call: +91 1234567890</p>
+      <p>For Complaints: 1800 202 2222</p>
+      <p>Chat Time: Our Team is Available From Monday to Saturday from 9.00AM to 8.00PM</p>
+      <p>For Complaints: Ebstcustomercare.com</p>
+    </div>
+
+    <div class="footer-section follow">
+      <h4>FOLLOW US</h4>
+      <p>
+        <i class="fab fa-instagram"></i> &nbsp;
+        <i class="fab fa-facebook"></i> &nbsp;
+        <i class="fab fa-twitter"></i>
+      </p>
+    </div>
+  </div>
+
+  <p class="copyright">Copyright © 2025 All Rights Reserved.</p>
+</footer>
+
+<script>
+
+  const productBtn = document.getElementById("productBtn");
+    const productMenu = document.getElementById("productMenu");
+
+    productBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      // Toggle display
+      if (productMenu.style.display === "block") {
+        productMenu.style.display = "none";
+      } else {
+        productMenu.style.display = "block";
+      }
+    });
+
+    // Optional: close dropdown when clicking outside
+    window.addEventListener("click", function (e) {
+      if (!productBtn.contains(e.target) && !productMenu.contains(e.target)) {
+        productMenu.style.display = "none";
+      }
+    });
+
+    
+
+  const files = [
+      "index.html",
+    "pampers.html",
+    "boys.html",
+    "girls.html",
+    "soap.html",
+    "stroller.html",
+    "bottle.html",
+    "offers.html",
+    "checkout.html",
+    "add.html",
+    "about.html",
+    "contacts.html",
+    "details.html",
+    "order.html"
+  ];
+
+  const currentPage = window.location.pathname.split("/").pop();
+  let currentIndex = files.indexOf(currentPage);
+  const nav = document.getElementById("carouselNav");
+  let hideTimeout;
+
+  function nextFile() {
+    currentIndex = (currentIndex + 1) % files.length;
+    window.location.href = files[currentIndex];
+  }
+
+  function prevFile() {
+    currentIndex = (currentIndex - 1 + files.length) % files.length;
+    window.location.href = files[currentIndex];
+  }
+
+  function showCarouselNav() {
+    nav.classList.add("show");
+    clearTimeout(hideTimeout);
+    hideTimeout = setTimeout(() => {
+      nav.classList.remove("show");
+    }, 3000); // hide after 3 sec
+  }
+
+  document.addEventListener("click", showCarouselNav);
+  document.addEventListener("touchstart", showCarouselNav);
+
+  //filter button 
+ function toggleDropdown() {
+    const dropdown = document.getElementById("dropdown-para");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+  }
+
+  // Close dropdown if clicked outside
+  window.onclick = function(event) {
+    if (!event.target.matches('.filter-btn')) {
+      document.getElementById("dropdown").style.display = "none";
+    }
+  }
+
+
+</script>
+
+
+</body>
+</html>
+
